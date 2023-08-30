@@ -12,3 +12,32 @@
 #     <function_name>("пара-ра-рам рам-пуум-пупам па-ре-по-дам") -> False
 #     <function_name>("Трам-пара-папам-парам-па-пам-пам-па Пум-пурум-пу-пурум-трам-пам-па") -> False
 #     <function_name>("Пам-парам-пурум Пум-пурум-карам") -> True
+# def where(f, col):
+#  return [x for x in col if f(x)]
+# data = '1 2 3 5 8 15 23 38'.split()
+# res = map(int, data)
+# print(res)
+# res = where(lambda x: x % 2 == 0, res)
+# print(res)
+# res = list(map(lambda x: (x, x ** 2), res))
+# print(res)
+def ritm(str):
+    check_list = []
+    str = str.split()
+    for word in str:
+        counter = 0
+        for letter in word:
+            if letter in 'яЯиИюЮэЭоОаАыЫуУеЕёЁ':
+                counter += 1
+        check_list.append(counter)
+    return  check_list.count(check_list[0]) == len(check_list)
+str_1 = 'пара-ра-рам рам-пам-папам па-ра-па-дам'
+str_2 = 'пара-ра-рам рам-пум-пупам па-ре-по-дам'
+str_3 = 'пара-ра-рам рам-пуум-пупам па-ре-по-дам'
+str_4 = 'Трам-пара-папам-парам-па-пам-пам-па Пум-пурум-пу-пурум-трам-пам-па'
+str_5 = 'Пам-парам-пурум ПУм-пурум-карам'
+print(ritm(str_1))
+print(ritm(str_2))
+print(ritm(str_3))
+print(ritm(str_4))
+print(ritm(str_5))
